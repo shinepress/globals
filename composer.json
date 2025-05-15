@@ -1,0 +1,10 @@
+{
+	"name": "shinepress/globals",
+	"type": "library",
+	"license": "MIT",
+	"description": "Allow ShinePress modules to register global functions and variables.",
+	"keywords": [
+		"wordpress",
+		"globals"
+	]
+}
