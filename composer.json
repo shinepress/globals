@@ -6,5 +6,40 @@
 	"keywords": [
 		"wordpress",
 		"globals"
-	]
+	],
+	"require": {
+		"php": ">=8.1",
+		"shinepress/framework": "^1.0"
+	},
+	"require-dev": {
+		"shinepress/coding-standard": "dev-main",
+		"php-cs-fixer/shim": "^3.75",
+		"phpstan/phpstan": "^2.1",
+		"phpstan/phpstan-strict-rules": "^2.0",
+		"phpunit/phpunit": "^10.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"ShinePress\\Globals\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"ShinePress\\Globals\\Tests\\": "tests/"
+		}
+	},
+	"scripts": {
+		"analyze": "@composer analyze:static",
+		"analyze:static": "phpstan analyse -v",
+		"test": "@composer test:unit",
+		"test:unit": "phpunit --do-not-cache-result",
+		"syntax:check": "php-cs-fixer check --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --verbose --using-cache=no --allow-risky=yes",
+		"syntax:fix": "php-cs-fixer fix --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --verbose --using-cache=no --allow-risky=yes" 
+	},
+	"scripts-descriptions": {
+		"analyze:static": "Perform static analysis (phpstan).",
+		"test:unit": "Run unit tests (phpunit).",
+		"syntax:check": "Check syntax against coding standard (php-cs-fixer).",
+		"syntax:fix": "Fix syntax to conform with coding standard (php-cs-fixer)."
+	}
 }
